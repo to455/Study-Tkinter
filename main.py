@@ -1,15 +1,39 @@
 from tkinter import *
 
-#
 def function1():
-    a = txt0.get()
-    b = txt1.get()
-    c = txt2.get()
-    d = "walla walla bing bang, supercalifragilisticexpialidocious"
-    e = a + b + c + d
-    print(e)
-    txt3.insert('1.0', e)
+    h = txt0.get()
+    w = txt1.get()
+
+    # Convert data type from string to integer
+    h = int(h)
+    w = int(w)
+
+    h = h/100
+    bmi = w / (h * h)
+
+    # Call function named func_bmi with argument
+    # bmi is argument
+    comment = func_bmi(bmi)
+
+    output = "Your BMI is " + str(bmi) + " and my comment is " + comment
+    # d = "walla walla bing bang, supercalifragilisticexpialidocious"
+
+    txt3.insert('1.0', output)
     return
+
+
+def func_bmi(bmi):
+    if bmi >= 25:
+        result = 'Hey, you are too fat Stop to eat!!'
+    elif bmi >= 23 and bmi <25:
+        result = "You are a little bit heavy, why don't you consider losing weight"
+    elif bmi >=18.5 and bmi <23:
+        result = 'Good for you, you are normal'
+    else:
+        result = 'You eat harder'
+
+    return result
+
 
 def function2():
     txt0.delete(0, 'end')
@@ -25,13 +49,13 @@ root.geometry('500x400')
 root.resizable(True, True)
 
 # Tkinter Row 0 - Label and Entry
-lbl0 = Label(root, text="Input 1", width=10)
+lbl0 = Label(root, text="Input Your Height", width=15)
 lbl0.grid(row=0, column=0)
 txt0 = Entry(root)
 txt0.grid(row=0, column=1)
 
 # Tkinter Row 1 - Label and Entry
-lbl1 = Label(root, text="Input 2", width=10)
+lbl1 = Label(root, text="Input Your Weight", width=15)
 lbl1.grid(row=1, column=0)
 txt1 = Entry(root)
 txt1.grid(row=1, column=1)
